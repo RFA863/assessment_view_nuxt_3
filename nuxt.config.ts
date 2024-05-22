@@ -10,4 +10,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  modules: ["nuxt-icon", "nuxt-primevue"],
+
+  primevue: {
+    options: {
+      unstyled: true,
+    },
+    importPT: { as: "Aura", from: "~/presets/aura" },
+  },
 });
