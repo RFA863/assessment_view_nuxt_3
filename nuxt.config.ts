@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/main.css", "primeicons/primeicons.css"],
 
   postcss: {
     plugins: {
@@ -11,6 +11,11 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_PUBLIC_API_URL,
+    },
+  },
   modules: ["nuxt-icon", "nuxt-primevue"],
 
   primevue: {
