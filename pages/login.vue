@@ -72,7 +72,30 @@ const errorMessage = ref("");
 
 const host = config.public.apiUrl;
 
+const getCsrfToken = async () => {
+  const response = await fetch(host + "/sanctum/csrf-cookie", {
+    method: "GET",
+    credentials: "include",
+  });
+
+  // Log respons untuk memastikan kita mendapatkan respons yang benar
+  console.log("CSRF response status:", response.status);
+  console.log("CSRF response headers:", response.headers);
+
+  const cookies = document.cookie.split(";").reduce((cookies, cookie) => {
+    const [name, value] = cookie.split("=").map((c) => c.trim());
+    cookies[name] = value;
+    return cookies;
+  }, {});
+
+  const csrfToken = cookies["XSRF-TOKEN"];
+  console.log("CSRF Token:", csrfToken); // Untuk memastikan bahwa token diambil
+  return csrfToken;
+};
+
 const login = async () => {
+  await getCsrfToken();
+
   const data = {
     email: email.value,
     password: password.value,
@@ -91,7 +114,9 @@ const login = async () => {
         userCookie.value = res.user;
         tokenCookie.value = res.token;
 
-        navigateTo("/");
+        if (res.role === "admin") {
+          navigateTo("/admin");
+        }
       } else {
         errorMessage.value = res;
       }

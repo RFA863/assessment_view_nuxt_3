@@ -10,14 +10,16 @@ export default defineNuxtRouteMiddleware((to, from) => {
     }
 
     // Cek role user dan arahkan ke halaman yang sesuai
-    if (userCookie.value.role === 'admin') {
+    // if (userCookie.value.role === 'admin') {
 
-        if (to.path !== '/admin') {
-            return navigateTo('/admin')
-        }
-    } else if (userCookie.value.role === 'opd') {
-        if (to.path !== '/opd') {
-            return navigateTo('/opd')
-        }
-    }
+    //     if (to.path !== '/admin') {
+    //         return navigateTo('/admin')
+    //     }
+    // } else if (userCookie.value.role === 'opd') {
+    //     if (to.path !== '/opd') {
+    //         return navigateTo('/opd')
+    //     }
+    // }
 })
+
+

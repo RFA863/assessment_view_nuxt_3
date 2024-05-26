@@ -1,5 +1,5 @@
 <template>
-  <div class="font-poppins w-screen">
+  <div class="font-poppins">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
