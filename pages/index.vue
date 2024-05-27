@@ -3,3 +3,9 @@
     Ini Aplikasi Assessment Diskominfo Kota Bogor
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  middleware: "auth",
+});
+</script>
