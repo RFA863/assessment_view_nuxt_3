@@ -37,6 +37,13 @@
               error : {{ errorMessage.message }}
             </div>
             <button
+              v-if="loading"
+              class="bg-sky-700 w-full py-1 text-xl font-medium text-white rounded-lg mt-2 mb-6"
+            >
+              <i class="pi pi-spin pi-spinner"></i>
+            </button>
+            <button
+              v-else
               type="submit"
               class="bg-sky-700 w-full py-1 text-xl font-medium text-white rounded-lg mt-2 mb-6"
             >
@@ -64,6 +71,8 @@ const config = useRuntimeConfig();
 
 const userCookie = useCookie("user");
 const tokenCookie = useCookie("token");
+
+const loading = ref(false);
 
 const password = ref(null);
 const email = ref(null);
@@ -94,6 +103,7 @@ const getCsrfToken = async () => {
 };
 
 const login = async () => {
+  loading.value = true;
   await getCsrfToken();
 
   const data = {
@@ -116,6 +126,10 @@ const login = async () => {
 
         if (res.role === "admin") {
           navigateTo("/admin");
+        } else if (res.role === "opd") {
+          navigateTo("/opd");
+        } else if (res.role === "assessment") {
+          navigateTo("/assessor");
         }
       } else {
         errorMessage.value = res;
@@ -123,6 +137,13 @@ const login = async () => {
     });
   } catch (error) {
     console.error("Terjadi kesalahan:", error);
+  } finally {
+    loading.value = false;
   }
 };
+
+onMounted(() => {
+  userCookie.value = null;
+  tokenCookie.value = null;
+});
 </script>
