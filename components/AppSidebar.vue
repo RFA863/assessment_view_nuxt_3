@@ -57,16 +57,16 @@ const itemOpd = ref([
       {
         label: "Data Aplikasi",
         icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/data-aplikasi");
-        // },
+         command: () => {
+          navigateTo("/opd/data_aplikasi");
+         },
       },
       {
         label: "Dokumen Proses Assessment",
         icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/dokumen-proses");
-        // },
+       command: () => {
+         navigateTo("/opd/dokumen_proses");
+      },
       },
       {
         label: "Dokumen Proses pengajuan Hosting dan Sub-domain",
