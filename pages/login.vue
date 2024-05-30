@@ -1,17 +1,22 @@
 <template>
   <div class="relative overflow-hidden">
     <div class="absolute z-[1] w-full">
-      <div class="flex gap-3 px-8">
+      <div class="flex gap-3 px-8 mt-4">
         <img src="/img/logo/kota_bogor.png" alt="logo kota bogor" />
         <img src="/img/logo/diskominfo.png" alt="logo diskominfo kota bogor" />
       </div>
 
       <div class="flex flex-col items-center w-full">
-        <div class="text-4xl font-semibold">Aplikasi Assessment Kota Bogor</div>
+        <div class="text-4xl font-semibold mt-6">
+          Aplikasi Assessment <span class="text-sky-500">Kota Bogor</span>
+        </div>
 
         <div class="border-2 rounded-xl shadow-xl my-16 bg-white">
-          <div class="font-semibold text-2xl flex justify-center my-6">
-            Login
+          <div class="font-semibold text-2xl flex justify-center mt-6 mb-1">
+            <p>Selamat Datang!</p>
+          </div>
+          <div class="font-semibold text-xs flex justify-center mb-6">
+            <p>Silahkan login pada kolom dibawah ini.</p>
           </div>
 
           <form @submit.prevent="login" class="mx-6">
@@ -33,6 +38,21 @@
                 v-model="password"
               />
             </InputGroup>
+            <div class="checkbox block">
+              <input
+                checked
+                id="checked-checkbox"
+                type="checkbox"
+                value=""
+                class="w-4 h-4 ml-1 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                for="checked-checkbox"
+                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >Remember Me!</label
+              >
+            </div>
+
             <div class="text-center text-red-700" v-if="errorMessage">
               error : {{ errorMessage.message }}
             </div>
@@ -45,7 +65,7 @@
             <button
               v-else
               type="submit"
-              class="bg-sky-700 w-full py-1 text-xl font-medium text-white rounded-lg mt-2 mb-6"
+              class="bg-sky-700 w-full py-1 text-xl font-medium text-white rounded-lg mt-2 mb-6 hover:bg-slate-100 hover:text-sky-500"
             >
               Login
             </button>
