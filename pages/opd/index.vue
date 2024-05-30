@@ -1,9 +1,3 @@
 <template>
-  <div>dashboard opd</div>
+  <div></div>
 </template>
-
-<script setup>
-definePageMeta({
-  middleware: "auth",
-});
-</script>
