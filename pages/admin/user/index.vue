@@ -148,7 +148,8 @@ const deleteData = (rowData) => {
       icon: "pi pi-info-circle",
       rejectLabel: "Cancel",
       acceptLabel: "Delete",
-      rejectClass: "bg-white text-gray-700 border-slate-700 hover:bg-white  ",
+      rejectClass:
+        "bg-slate-900 text-gray-700 border-slate-700 hover:bg-white  ",
       acceptClass:
         "bg-red-600 border-slate-700 hover:bg-red-700 hover:border-slate-700",
       accept: () => {
