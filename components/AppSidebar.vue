@@ -51,38 +51,18 @@ const itemAdmin = ref([
 
 const itemOpd = ref([
   {
-    label: "Input Dokumen",
+    label: "Pengajuan Assessment",
     icon: "pi pi-file",
-    items: [
-      {
-        label: "Data Aplikasi",
-        icon: "pi pi-file",
-         command: () => {
-          navigateTo("/opd/data_aplikasi");
-         },
-      },
-      {
-        label: "Dokumen Proses Assessment",
-        icon: "pi pi-file",
-       command: () => {
-         navigateTo("/opd/dokumen_proses");
-      },
-      },
-      {
-        label: "Dokumen Proses pengajuan Hosting dan Sub-domain",
-        icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/hosting-subdomain");
-        // },
-      },
-    ],
+    command: () => {
+      navigateTo("/opd/pengajuan-assessment/data-aplikasi");
+    },
   },
   {
     label: "Status Assessment",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/opd/status-assessment");
-    // },
+    command: () => {
+      navigateTo("/opd/status-assessment");
+    },
   },
   {
     label: "Assessment Selesai",

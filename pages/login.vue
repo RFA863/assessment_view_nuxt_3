@@ -38,7 +38,7 @@
                 v-model="password"
               />
             </InputGroup>
-            <div class="checkbox block">
+            <!-- <div class="checkbox block">
               <input
                 checked
                 id="checked-checkbox"
@@ -51,7 +51,7 @@
                 class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >Remember Me!</label
               >
-            </div>
+            </div> -->
 
             <div class="text-center text-red-700" v-if="errorMessage">
               error : {{ errorMessage.message }}
