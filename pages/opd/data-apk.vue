@@ -216,11 +216,13 @@
               variant="filled"
             />
           </div>
-          <button
-            class="bg-yellow-500 text-white p-2 w-1/4 rounded-full ml-[440px] mt-6 hover:bg-yellow-600"
-          >
-            Kirim
-          </button>
+          <NuxtLink to="/opd/dok-proses-pengajuan">
+            <button
+              class="bg-yellow-500 text-white p-2 w-1/4 rounded-full ml-[440px] mt-6 hover:bg-yellow-600"
+            >
+              Kirim
+            </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -235,10 +237,8 @@ import { ref } from "vue";
 
 const config = useRuntimeConfig();
 const host = config.public.apiUrl;
-
 const tokenCookie = useCookie("token");
 const token = tokenCookie.value;
-
 const toast = useToast();
 const selectedUser = ref();
 const selectedUserApk = ref();
