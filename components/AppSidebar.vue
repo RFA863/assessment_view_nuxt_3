@@ -51,45 +51,25 @@ const itemAdmin = ref([
 
 const itemOpd = ref([
   {
-    label: "Input Dokumen",
+    label: "Pengajuan Assessment",
     icon: "pi pi-file",
-    items: [
-      {
-        label: "Data Aplikasi",
-        icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/data-aplikasi");
-        // },
-      },
-      {
-        label: "Dokumen Proses Assessment",
-        icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/dokumen-proses");
-        // },
-      },
-      {
-        label: "Dokumen Proses pengajuan Hosting dan Sub-domain",
-        icon: "pi pi-file",
-        // command: () => {
-        //   navigateTo("/opd/hosting-subdomain");
-        // },
-      },
-    ],
+    command: () => {
+      navigateTo("/opd/pengajuan-assessment/data-aplikasi");
+    },
   },
   {
-    label: "Status Assessment",
+    label: "Riwayat Assessment",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/opd/status-assessment");
-    // },
+    command: () => {
+      navigateTo("/opd/status-assessment");
+    },
   },
   {
     label: "Assessment Selesai",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/opd/assessment-selesai");
-    // },
+    command: () => {
+      navigateTo("/opd/assessment-selesai");
+    },
   },
 ]);
 
@@ -97,23 +77,23 @@ const itemAssessor = ref([
   {
     label: "Assessment Diajukan",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/assessor/assessment-diajukan");
-    // },
+    command: () => {
+      navigateTo("/assessor/assessment-diajukan");
+    },
   },
   {
-    label: "Status Assessment",
+    label: "Riwayat Assessment",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/assessor/status-assessment");
-    // },
+    command: () => {
+      navigateTo("/assessor/riwayat-assessment");
+    },
   },
   {
     label: "Assessment Selesai",
     icon: "pi pi-building-columns",
-    // command: () => {
-    //   navigateTo("/assessor/assessment-selesai");
-    // },
+    command: () => {
+      navigateTo("/assessor/assessment-selesai");
+    },
   },
 ]);
 </script>
