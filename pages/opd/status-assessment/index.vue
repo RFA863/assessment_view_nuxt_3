@@ -21,7 +21,7 @@
         :rows="5"
         dataKey="id"
         :loading="loading"
-        :globalFilterFields="['name', 'email', 'role']"
+        :globalFilterFields="['nama_apk', 'opd', 'status']"
         class="border border-t-0 rounded-xl"
       >
         <template #header>
@@ -83,6 +83,9 @@ const host = config.public.apiUrl;
 const tokenCookie = useCookie("token");
 const token = tokenCookie.value;
 
+const userCookie = useCookie("user");
+const user = userCookie.value;
+
 const confirm = useConfirm();
 const toast = useToast();
 
@@ -110,13 +113,16 @@ const edit = (rowData) => {
 const fetchData = async () => {
   loading.value = true;
   try {
-    const response = await $fetch(host + "/api/assessment/opd/assessment", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-    }).then((res) => {
+    const response = await $fetch(
+      host + "/api/assessment/opd/getAssessmentById/" + user.id,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    ).then((res) => {
       if (res.success) {
         console.log(res.data[0].apk.opd.opd);
         dataTable.value = res.data.map((item, index) => ({

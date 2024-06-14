@@ -1,6 +1,6 @@
 <template>
   <div class="border-2 rounded-xl shadow-xl px-12 py-6 m-12">
-    <div class="text-3xl font-semibold">Assessment Aplikasi Baru</div>
+    <div class="text-3xl font-semibold">Assessment Aplikasi</div>
 
     <!-- <NuxtLink to="/admin/user/create">
         <button
@@ -45,18 +45,24 @@
           :field="col.field"
           :header="col.header"
         ></Column>
-        <Column header="Actions">
-          <template #body="slotProps">
-            <div class="flex gap-4">
-              <button
-                class="bg-blue-600 px-6 py-2 rounded-lg text-white"
-                @click="assessment(slotProps.data)"
-              >
-                Assessment
-              </button>
-            </div>
-          </template>
-        </Column>
+        <!-- <Column header="Actions">
+            <template #body="slotProps">
+              <div class="flex gap-4">
+                <button
+                  class="bg-orange-600 px-6 py-2 rounded-lg text-white"
+                  @click="edit(slotProps.data)"
+                >
+                  Edit
+                </button>
+                <button
+                  class="bg-red-600 px-6 py-2 rounded-lg text-white"
+                  @click="deleteData(slotProps.data)"
+                >
+                  Delete
+                </button>
+              </div>
+            </template>
+          </Column> -->
       </DataTable>
     </div>
     <Toast />
@@ -77,6 +83,9 @@ const host = config.public.apiUrl;
 const tokenCookie = useCookie("token");
 const token = tokenCookie.value;
 
+const userCookie = useCookie("user");
+const user = userCookie.value;
+
 const confirm = useConfirm();
 const toast = useToast();
 
@@ -94,10 +103,10 @@ const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 });
 
-const assessment = (rowData) => {
+const edit = (rowData) => {
   selectedData.value = rowData;
   if (selectedData.value.id !== null) {
-    navigateTo("/assessor/assessment-aplikasi/UI-UX-" + selectedData.value.id);
+    navigateTo("/admin/user/edit-" + selectedData.value.id);
   }
 };
 
@@ -105,7 +114,7 @@ const fetchData = async () => {
   loading.value = true;
   try {
     const response = await $fetch(
-      host + "/api/assessment/assessor/getAssessmentOpd",
+      host + "/api/assessment/opd/getAssessmentSelesaiById/" + user.id,
       {
         method: "GET",
         headers: {
